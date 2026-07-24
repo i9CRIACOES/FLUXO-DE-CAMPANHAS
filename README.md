@@ -30,6 +30,7 @@ FLUXO DE CAMPANHAS/
 │  └─ performance.md     ← você preenche com números reais (lido por /calendario)
 ├─ briefings/            ← briefings de cliente que entram no /campanha
 ├─ entregas/            ← tudo que os comandos produzem sai aqui
+├─ exemplos/            ← caso-modelo (cliente fictício "Verde Vida") de referência
 └─ CLAUDE.md             ← checklist que aparece sozinho em todo chat novo
 ```
 
@@ -90,7 +91,9 @@ Cada comando é só um arquivo markdown em `.claude/commands/`. Pra criar um nov
 
 ### Guardando exemplos de campanha como referência
 
-Quando uma campanha ficar boa, **commite a entrega** em `entregas/` (ou crie uma pasta `exemplos/`) pra virar referência do time. Assim o próximo a rodar `/campanha` tem um padrão de qualidade pra mirar.
+Já tem um caso-modelo pronto em **`exemplos/verde-vida/`** (cliente fictício, marmitas saudáveis). Ele mostra "como deve ficar" cada arquivo: `marca/` preenchida, um briefing e as 4 entregas (`/calendario`, `/repurpose`, `/campanha`, `/ads`). Abra antes de rodar num cliente real pra calibrar o nível de detalhe esperado — **copie a estrutura e a disciplina, não os dados**.
+
+Quando uma campanha sua ficar boa, **commite a entrega** em `entregas/` (ou dentro de `exemplos/`) pra virar referência do time. Assim o próximo a rodar `/campanha` tem um padrão de qualidade pra mirar.
 
 ---
 
