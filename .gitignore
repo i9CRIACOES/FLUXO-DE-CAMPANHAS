@@ -1,0 +1,6 @@
+# Sistema
+.DS_Store
+*.log
+
+# Rascunhos locais (nao versionar)
+*.tmp
