@@ -99,7 +99,7 @@ Peça base: [cole o anúncio atual]. Quantidade: [número] variações.
 ```
 
 ### Passo 4 — Salvar a entrega
-No Cowork o resultado sai no chat. Copie e guarde onde a equipe organiza os materiais (Drive, Notion, o que vocês usam). O salvamento automático em pastas só acontece no Claude Code.
+No Cowork o resultado sai no chat. Copie e guarde na **pasta do cliente no Drive de equipe (Team Drive)** — o lugar oficial da i9, sempre compartilhado, com a data no nome. O salvamento automático em pastas só acontece no Claude Code (e mesmo lá vale copiar as entregas pro Team Drive).
 
 ### Regras que a equipe não pode esquecer
 - **Marca primeiro.** Sem as diretrizes, tudo sai genérico.

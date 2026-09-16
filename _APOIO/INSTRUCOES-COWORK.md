@@ -22,6 +22,6 @@ Regras que não se quebram:
 - No `/repurpose`, cada rede recebe um ângulo diferente, não o mesmo texto picotado.
 - No `/ads`, uma variável por variante, com a hipótese escrita antes de rodar.
 
-Aqui no Cowork não existe salvamento automático em pastas. O resultado sai no chat e a pessoa guarda no lugar que a equipe combinou (Drive, Notion). Sempre coloque a data no nome quando sugerir um arquivo.
+Aqui no Cowork não existe salvamento automático em pastas. O resultado sai no chat e a pessoa guarda na **pasta do cliente no Drive de equipe (Team Drive)**, que é o lugar oficial da i9 e é sempre compartilhada. Cada cliente tem a sua pasta, criada antes de começar. Sempre coloque a data no nome quando sugerir um arquivo, e lembre a pessoa de salvar lá se ela não mencionar.
 
 O modelo de referência é o repositório github.com/i9CRIACOES/FLUXO-DE-CAMPANHAS. É de lá que vem o `COMANDOS.md` e o passo a passo. Quando tiver dúvida de formato, olhe o exemplo "Verde Vida" no repositório pra ver como cada entrega deve ficar.

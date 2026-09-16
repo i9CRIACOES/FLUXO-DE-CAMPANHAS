@@ -12,7 +12,17 @@ Guia pra você produzir campanhas no mesmo padrão da i9. Escolha o seu caminho:
 
 **Regra de ouro:** a **marca** vem sempre primeiro. Os outros quatro usam o que ela produz. Sem a marca, tudo sai genérico.
 
-**Antes de tudo (vale pros dois caminhos):** junte o material do cliente — site, PDF comercial e uns 10 posts reais que ele já publicou. É isso que faz a diferença entre um documento útil e um cheio de "PERGUNTAR AO CLIENTE". Cliente novo começa fora do Claude, coletando isso.
+## Passo 0 — a pasta do cliente no Drive de equipe (obrigatório, vale pros dois caminhos)
+
+Na i9 **todo cliente tem uma pasta própria no Drive de equipe (Team Drive)**, e ela é sempre compartilhada. É lá que ficam o material do cliente e as entregas.
+
+1. Antes de qualquer coisa, crie a **pasta do cliente dentro do Team Drive** da equipe.
+2. Deixe-a **compartilhada** com o time.
+3. É nessa pasta que você guarda tudo: o material bruto do cliente e as entregas que o Claude gerar.
+
+> Sem essa pasta você não tem onde guardar o resultado (o Cowork não salva sozinho) e o histórico do cliente se perde. Ela é o passo 0 de todo cliente novo.
+
+**Depois da pasta criada, junte o material do cliente** — site, PDF comercial e uns 10 posts reais que ele já publicou. É isso que faz a diferença entre um documento útil e um cheio de "PERGUNTAR AO CLIENTE". Cliente novo começa fora do Claude, coletando isso e organizando na pasta do Team Drive.
 
 ---
 
@@ -46,7 +56,7 @@ A i9 já deixou um projeto compartilhado chamado **FLUXOS DE CAMPANHAS**, com tu
    ```
    Rode o fluxo /ads para o [cliente]. Peça base: [cole o anúncio]. Quantidade: [número].
    ```
-5. O resultado sai no chat. **Copie e guarde** no Drive/Notion da equipe, com a data no nome. No Cowork não há salvamento automático.
+5. O resultado sai no chat. **Copie e guarde na pasta do cliente no Team Drive** (a que você criou no Passo 0), com a data no nome. No Cowork não há salvamento automático.
 
 > Para cada cliente novo, é só abrir **outra conversa** dentro do mesmo projeto. Não misture dois clientes na mesma conversa.
 
@@ -121,8 +131,8 @@ O `performance.md` vai estar vazio, porque ainda não existe histórico do clien
 - **Marca primeiro.** Sempre.
 - **Material de verdade.** Sem material, o Claude marca PERGUNTAR AO CLIENTE em vez de inventar. Respeite isso.
 - **Um cliente por vez.** Uma conversa (Cowork) ou uma pasta (Claude Code) por cliente.
-- **Guarde as entregas.** No Cowork, copie pro lugar oficial da equipe: **[DEFINIR: Drive da i9 / Notion]**, com a data no nome. É esse histórico que vira a referência de qualidade do time.
-- **Faça backup das campanhas (Claude Code).** A pasta da campanha fica só na sua máquina e **não sobe pro GitHub** (é de propósito). Se for algo importante, guarde as entregas também no Drive/Notion — se o computador falhar, o que não estiver salvo fora se perde.
+- **Guarde as entregas na pasta do cliente no Team Drive.** É o lugar oficial da i9, sempre compartilhado, com a data no nome. É esse histórico que vira a referência de qualidade do time.
+- **Faça backup das campanhas (Claude Code).** A pasta da campanha fica só na sua máquina e **não sobe pro GitHub** (é de propósito). Copie as entregas também pra pasta do cliente no Team Drive — se o computador falhar, o que não estiver lá se perde.
 - **Atualizar uma campanha antiga (Claude Code).** Os comandos dentro da campanha ficam congelados na versão do dia em que você copiou. Pra trazer uma melhoria nova, recopie a pasta `.claude/` do `TEMPLATE DE CAMPANHA` pra dentro da campanha.
 
 ## Onde tirar dúvida

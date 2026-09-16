@@ -23,7 +23,7 @@ Antes de executar qualquer comando de campanha, o Claude DEVE verificar (e, se f
 2. **`marca/` está preenchida?** Verifique se existem `marca.md`, `voz.md`, `identidade.md`. Se não existirem → o primeiro passo é rodar `/marca`, nada mais.
 3. **`publico.md` e `performance.md` têm dado real?** Se ainda estão com o texto de template, avise: `/calendario` e `/ads` vão sair fracos.
 4. **Insumos no lugar?** Pra rodar `/marca`, confirme que há material em `marca/insumos/` (site, PDF comercial, ~10 posts).
-5. **Onde salvar?** Toda entrega vai em `entregas/` com data no nome (`AAAA-MM-DD`). Nunca sobrescreva uma entrega anterior — crie arquivo novo.
+5. **Onde salvar?** Toda entrega vai em `entregas/` com data no nome (`AAAA-MM-DD`). Nunca sobrescreva uma entrega anterior — crie arquivo novo. A pasta da campanha não sobe pro GitHub, então lembre o operador de **copiar a entrega final pra pasta do cliente no Drive de equipe (Team Drive)**, que é o lugar oficial e compartilhado da i9.
 6. **Vai commitar?** Ao terminar algo bom, lembre o operador de `git add . && git commit && git push` pra o time herdar.
 
 > Se algum item falhar, **NÃO tente adivinhar** — liste o que falta e pergunte. É melhor uma pergunta agora que uma campanha genérica depois.
