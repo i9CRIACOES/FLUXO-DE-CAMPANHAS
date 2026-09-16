@@ -21,18 +21,24 @@ Repositório de **comandos do Claude Code** que a agência usa pra rodar os 5 fl
 ```
 FLUXO DE CAMPANHAS/
 ├─ .claude/commands/     ← os 5 comandos (versionados, todo mundo herda)
-├─ marca/                ← diretrizes do cliente ativo
-│  ├─ insumos/           ← material bruto do cliente (você joga aqui ANTES de rodar /marca)
-│  ├─ marca.md           ← gerado por /marca
-│  ├─ voz.md             ← gerado por /marca
-│  ├─ identidade.md      ← gerado por /marca
-│  ├─ publico.md         ← você preenche (lido por /calendario e /ads)
-│  └─ performance.md     ← você preenche com números reais (lido por /calendario)
-├─ briefings/            ← briefings de cliente que entram no /campanha
-├─ entregas/            ← tudo que os comandos produzem sai aqui
-├─ exemplos/            ← caso-modelo (cliente fictício "Verde Vida") de referência
+├─ campanhas/            ← UMA PASTA POR CAMPANHA (é aqui que o trabalho acontece)
+│  ├─ estudio-i9-locacao/
+│  │  ├─ marca/          ← diretrizes desta campanha
+│  │  │  ├─ insumos/     ← material bruto do cliente (jogue aqui ANTES do /marca)
+│  │  │  ├─ marca.md · voz.md · identidade.md   ← gerados por /marca
+│  │  │  ├─ publico.md   ← você preenche (lido por /calendario e /ads)
+│  │  │  └─ performance.md ← números reais (lido por /calendario)
+│  │  ├─ briefings/      ← briefing que entra no /campanha
+│  │  └─ entregas/       ← tudo que os comandos produzem
+│  └─ cliente-x-lancamento/ ...
+├─ _MODELO-CAMPANHA/     ← molde vazio (copiado a cada campanha nova; não trabalhe aqui)
+├─ nova-campanha.sh      ← cria uma campanha nova a partir do molde
+├─ exemplos/             ← caso-modelo (cliente fictício "Verde Vida") de referência
+├─ COMANDOS.md           ← os 5 comandos num arquivo só (pra usar no Contexto do Cowork)
 └─ CLAUDE.md             ← checklist que aparece sozinho em todo chat novo
 ```
+
+> **Por que uma pasta por campanha:** cada campanha fica isolada — marca, briefings e entregas separados. Nada de sobrescrever o cliente anterior. Os comandos **não mudam**: como você trabalha dentro da pasta da campanha, os caminhos que eles usam (`marca/`, `entregas/`) já resolvem ali dentro.
 
 ---
 
@@ -97,32 +103,37 @@ No Cowork o resultado sai no chat. Copie e guarde onde a equipe organiza os mate
 
 ---
 
-## Como começar (primeira vez na sua máquina)
+## Como começar (Claude Code, primeira vez na sua máquina)
 
 1. **Clone o repositório:**
    ```bash
    git clone https://github.com/i9CRIACOES/FLUXO-DE-CAMPANHAS.git "FLUXO DE CAMPANHAS"
    cd "FLUXO DE CAMPANHAS"
    ```
-2. **Abra o Claude Code nessa pasta** e digite `/` — os 5 comandos aparecem no menu.
-3. Pronto. Não precisa instalar nada: os comandos já vêm no repositório.
+2. Não precisa instalar nada: os comandos já vêm no repositório.
 
 ---
 
 ## O jeito certo de usar (a ordem importa)
 
-> ⚠️ **`/marca` vem primeiro, sempre.** Os outros quatro comandos LEEM os arquivos que ele escreve. Rodar com a pasta `marca/` vazia = todos partem do zero e devolvem conselho genérico de internet.
+> ⚠️ **`/marca` vem primeiro, sempre.** Os outros quatro comandos LEEM os arquivos que ele escreve. Rodar com a `marca/` vazia = todos partem do zero e devolvem conselho genérico de internet.
 
-### Passo a passo de um cliente novo
+### Passo a passo de uma campanha nova
 
-1. **Junte o material** → jogue site, PDF comercial e ~10 posts do cliente em `marca/insumos/`.
-2. **Rode `/marca`:**
+1. **Crie a pasta da campanha** (na raiz do projeto):
+   ```bash
+   ./nova-campanha.sh estudio-i9-locacao
+   ```
+   Isso cria `campanhas/estudio-i9-locacao/` já com a estrutura pronta.
+2. **Abra o Claude Code DENTRO da pasta da campanha** (`campanhas/estudio-i9-locacao/`) e digite `/` — os 5 comandos aparecem. Trabalhar dentro da pasta é o que faz cada entrega ficar isolada ali.
+3. **Junte o material** → jogue site, PDF comercial e ~10 posts do cliente em `marca/insumos/`.
+4. **Rode `/marca`:**
    ```
    /marca Nome do Cliente
    ```
    Ele gera `marca.md`, `voz.md` e `identidade.md`, e devolve uma lista de **PERGUNTAR AO CLIENTE**. Leve essa lista pra próxima call e preencha as lacunas.
-3. **Preencha `marca/publico.md` e `marca/performance.md`** com dados reais (tem template pronto nos arquivos).
-4. **A partir daí, use os fluxos conforme a demanda:**
+5. **Preencha `marca/publico.md` e `marca/performance.md`** com dados reais (tem template pronto nos arquivos).
+6. **A partir daí, use os fluxos conforme a demanda:**
    ```
    /repurpose entregas/aula-de-ontem.md
    /calendario agosto 5
@@ -130,7 +141,7 @@ No Cowork o resultado sai no chat. Copie e guarde onde a equipe organiza os mate
    /ads entregas/ads-julho.md 9
    ```
 
-Tudo que os comandos produzem cai em `entregas/`.
+Tudo que os comandos produzem cai no `entregas/` daquela campanha.
 
 ---
 

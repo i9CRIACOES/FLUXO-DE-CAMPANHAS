@@ -11,13 +11,15 @@ Uma "caixa de comandos" pra produzir campanha em escala com padrão de agência.
 
 **Regra de ouro:** a qualidade da saída depende 100% do que está na pasta `marca/`. Comando bom + `marca/` vazia = texto genérico.
 
+**Uma pasta por campanha.** O trabalho acontece dentro de `campanhas/<nome-da-campanha>/`, cada uma com seu próprio `marca/`, `briefings/` e `entregas/`. Crie uma nova com `./nova-campanha.sh <nome>` (na raiz) e **abra o Claude Code dentro da pasta da campanha** — assim os caminhos `marca/` e `entregas/` dos comandos resolvem ali dentro, isolados das outras campanhas. Os comandos são os mesmos; só o lugar onde você os roda muda.
+
 ---
 
 ## ✅ CHECKLIST OBRIGATÓRIO — rode isto no começo de CADA sessão
 
 Antes de executar qualquer comando de campanha, o Claude DEVE verificar (e, se faltar, avisar o operador):
 
-1. **Qual cliente?** Confirme de qual cliente é o trabalho de hoje. Se a pasta `marca/` está com dados de OUTRO cliente, pare e pergunte antes de sobrescrever.
+1. **Qual campanha?** Confirme que você está na pasta certa em `campanhas/<nome>/`. Cada campanha tem seu próprio `marca/`. Se a sessão não está dentro de uma pasta de campanha, avise antes de gerar qualquer coisa.
 2. **`marca/` está preenchida?** Verifique se existem `marca.md`, `voz.md`, `identidade.md`. Se não existirem → o primeiro passo é rodar `/marca`, nada mais.
 3. **`publico.md` e `performance.md` têm dado real?** Se ainda estão com o texto de template, avise: `/calendario` e `/ads` vão sair fracos.
 4. **Insumos no lugar?** Pra rodar `/marca`, confirme que há material em `marca/insumos/` (site, PDF comercial, ~10 posts).
@@ -33,7 +35,7 @@ Antes de executar qualquer comando de campanha, o Claude DEVE verificar (e, se f
 1. **Nunca inventar dado.** Onde faltar informação, escrever **PERGUNTAR AO CLIENTE** e seguir. Número que não existe no material do cliente não entra na entrega.
 2. **Citar a fonte** de toda afirmação forte (de qual insumo/URL saiu).
 3. **`/marca` sempre primeiro.** Os outros quatro dependem dele.
-4. **Um cliente por vez na pasta `marca/`.** Trocar de cliente = confirmar antes de sobrescrever (ou usar branch/pasta separada).
+4. **Uma campanha por pasta.** Cada campanha vive em `campanhas/<nome>/` com sua própria `marca/`. Não misture duas campanhas na mesma sessão.
 5. **Não repetir texto entre plataformas** no `/repurpose` — cada rede recebe o ângulo que funciona nela.
 6. **Uma variável por variante** no `/ads` — hipótese escrita antes de rodar.
 
