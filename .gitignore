@@ -1,6 +1,17 @@
-# Sistema
+# Arquivos de sistema (qualquer nível)
 .DS_Store
 *.log
-
-# Rascunhos locais (nao versionar)
 *.tmp
+
+# === GitHub = só a "máquina" de campanhas ===
+# As campanhas ficam LOCAIS em cada computador e NÃO sobem pro GitHub.
+# Regra: ignora tudo na raiz...
+/*
+# ...menos a estrutura que deve viver no GitHub:
+!/TEMPLATE DE CAMPANHA/
+!/_APOIO/
+!/README.md
+!/.gitignore
+
+# Resultado: qualquer pasta de campanha nova criada na raiz
+# (ESTUDIOi9, cliente-x, etc.) é ignorada automaticamente.

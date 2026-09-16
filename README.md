@@ -1,8 +1,10 @@
 # FLUXO DE CAMPANHAS — i9 Criações
 
-Repositório de **comandos do Claude Code** que a agência usa pra rodar os 5 fluxos de campanha de forma padronizada, versionada e igual pra todo mundo.
+Repositório de **comandos do Claude Code** que a i9 usa pra rodar os 5 fluxos de campanha de forma padronizada, versionada e igual pra todo mundo. Serve pra equipe trabalhar tanto pelo **Claude Code** quanto pelo **Cowork**.
 
 > Prompt colado no chat morre na conversa. **Comando salvo em arquivo vira ativo da agência**: entra no git, o time inteiro usa, e melhora com o tempo.
+
+> ⚠️ **O que o GitHub guarda:** só a "máquina" de gerar campanhas — o `TEMPLATE DE CAMPANHA/`, a pasta `_APOIO/` e este README. **As campanhas em si (ESTUDIOi9, cliente-x, etc.) NÃO sobem pro GitHub** — elas ficam locais no computador de cada pessoa. O `.gitignore` cuida disso automaticamente: qualquer pasta de campanha criada na raiz é ignorada. Assim o repositório fica sempre limpo e serve como base pra qualquer um clonar e começar.
 
 ---
 
@@ -18,11 +20,12 @@ Repositório de **comandos do Claude Code** que a agência usa pra rodar os 5 fl
 
 ### Estrutura de pastas
 
-A raiz tem só **as pastas de campanha** + o **template** + a pasta de apoio. Nada solto.
+Legenda: 🟢 vive no GitHub · 🟡 criado localmente (não sobe pro GitHub).
 
 ```
 FLUXO DE CAMPANHAS/
-├─ TEMPLATE DE CAMPANHA/   ← o molde. Contém TUDO que uma campanha precisa. NÃO trabalhe aqui.
+├─ README.md               🟢 este arquivo (a explicação do fluxo)
+├─ TEMPLATE DE CAMPANHA/   🟢 o molde. Contém TUDO que uma campanha precisa. NÃO trabalhe aqui.
 │  ├─ .claude/commands/    ← os 5 comandos
 │  ├─ CLAUDE.md            ← checklist (carrega sozinho na sessão da campanha)
 │  ├─ marca/
@@ -32,15 +35,13 @@ FLUXO DE CAMPANHAS/
 │  │  └─ performance.md    ← números reais (lido por /calendario)
 │  ├─ briefings/           ← briefing que entra no /campanha
 │  └─ entregas/            ← tudo que os comandos produzem
+├─ _APOIO/                 🟢 papelada de apoio, fora do caminho
+│  ├─ nova-campanha.sh     ← cria uma campanha nova (copia o template)
+│  ├─ COMANDOS.md          ← os 5 comandos num arquivo só (pro Contexto do Cowork)
+│  └─ exemplos/            ← caso-modelo "Verde Vida" (referência)
 │
-├─ ESTUDIOi9/              ← UMA CAMPANHA (cópia autossuficiente do template)
-├─ cliente-x/              ← outra campanha...
-│
-└─ _APOIO/                 ← papelada de apoio, fora do caminho
-   ├─ nova-campanha.sh     ← cria uma campanha nova (copia o template)
-   ├─ COMANDOS.md          ← os 5 comandos num arquivo só (pro Contexto do Cowork)
-   ├─ exemplos/            ← caso-modelo "Verde Vida" (referência)
-   └─ README.md            ← este arquivo
+├─ ESTUDIOi9/              🟡 UMA CAMPANHA (cópia do template, só local)
+└─ cliente-x/              🟡 outra campanha (só local)...
 ```
 
 > **Por que cada campanha é autossuficiente:** ela é uma cópia inteira do `TEMPLATE DE CAMPANHA/`, então já traz os comandos, o checklist e as pastas dentro dela. Você abre o Claude Code dentro da pasta da campanha e tudo funciona ali, isolado das outras.
