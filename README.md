@@ -36,6 +36,67 @@ FLUXO DE CAMPANHAS/
 
 ---
 
+## 👥 Tutorial pra equipe (pelo Cowork / Claude Teams)
+
+Este é o jeito mais simples, e não precisa instalar nada. A equipe usa direto pelo projeto **FLUXOS DE CAMPANHAS** no Cowork, que já está compartilhado com a i9.
+
+**Antes de começar, entenda uma coisa:** no Cowork os comandos não são digitados como `/marca`. Isso é só no Claude Code. No Cowork a pessoa **pede em português** e o Claude segue o mesmo roteiro, porque as instruções dos comandos já estão no Contexto do projeto (arquivo `COMANDOS.md`). O resultado é o mesmo.
+
+### Passo 1 — Entrar no projeto
+Abra o Cowork, vá em Projetos e entre em **FLUXOS DE CAMPANHAS**. Todo chat aberto dentro dele já carrega o checklist e os comandos automaticamente.
+
+### Passo 2 — Sempre começar pela marca
+O `/marca` vem primeiro. Os outros dependem do que ele escreve. Pra um cliente novo, a primeira mensagem é:
+
+```
+Siga o fluxo /marca do COMANDOS.md.
+Cliente: [nome do cliente].
+Material do cliente: [cole aqui o site, textos, e uns 10 posts que ele já publicou].
+Monte as diretrizes de marca (marca, voz e identidade) como o comando manda.
+```
+
+O Claude devolve as diretrizes e uma lista de **PERGUNTAR AO CLIENTE**. Guarde esse resultado, é a base de tudo.
+
+### Passo 3 — Rodar o fluxo que você precisa
+Depois da marca pronta, é só pedir o fluxo do momento. Modelos prontos pra copiar (troque o que está entre colchetes):
+
+**Transformar um conteúdo em posts de cada rede:**
+```
+Siga o fluxo /repurpose do COMANDOS.md, respeitando a voz da marca do [cliente].
+Conteúdo: [cole o texto, a aula ou o link].
+```
+
+**Montar o calendário do mês:**
+```
+Siga o fluxo /calendario do COMANDOS.md para o [cliente].
+Mês: [mês]. Posts por semana: [número].
+```
+
+**Virar um briefing em campanha completa:**
+```
+Siga o fluxo /campanha do COMANDOS.md para o [cliente].
+Briefing: [cole o briefing do cliente].
+```
+
+**Gerar variações de anúncio pra teste:**
+```
+Siga o fluxo /ads do COMANDOS.md para o [cliente].
+Peça base: [cole o anúncio atual]. Quantidade: [número] variações.
+```
+
+### Passo 4 — Salvar a entrega
+No Cowork o resultado sai no chat. Copie e guarde onde a equipe organiza os materiais (Drive, Notion, o que vocês usam). O salvamento automático em pastas só acontece no Claude Code.
+
+### Regras que a equipe não pode esquecer
+- **Marca primeiro.** Sem as diretrizes, tudo sai genérico.
+- **Não inventar número.** Se o material do cliente não tem o dado, o Claude marca PERGUNTAR AO CLIENTE. Respeite isso.
+- **Um cliente por vez** em cada linha de raciocínio. Não misture dois clientes no mesmo pedido.
+- Em dúvida sobre como pedir, abra o `COMANDOS.md` no Contexto do projeto e o `exemplos/verde-vida/` no GitHub pra ver como fica cada entrega.
+
+> Quem for mexer a fundo (versionar, ajustar comandos, salvar em pasta) usa o **Claude Code** — as instruções estão logo abaixo. A maior parte da equipe resolve tudo pelo Cowork.
+
+---
+
 ## Como começar (primeira vez na sua máquina)
 
 1. **Clone o repositório:**
