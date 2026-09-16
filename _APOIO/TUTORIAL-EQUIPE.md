@@ -70,12 +70,18 @@ Se você precisar de um projeto próprio, é aqui que você "monta a pasta" no C
 
 Aqui cada campanha é uma **pasta de verdade** no seu computador, criada por um comando. O Claude salva as entregas sozinho, e as campanhas ficam só na sua máquina (não vão pro GitHub).
 
-## B.1 — Uma vez só: baixar a "máquina"
+## B.1 — Baixar (ou atualizar) a "máquina"
 
-Clone o repositório (faz isso uma vez):
+Se ainda **não clonou**, faça uma vez:
 ```bash
 git clone https://github.com/i9CRIACOES/FLUXO-DE-CAMPANHAS.git "FLUXO DE CAMPANHAS"
 ```
+
+Se **já clonou antes**, não clone de novo — entre na pasta e rode `git pull` pra pegar a versão mais recente da máquina antes de criar a campanha:
+```bash
+cd "FLUXO DE CAMPANHAS" && git pull
+```
+A máquina melhora com o tempo. Você quer os comandos de hoje, não os de dois meses atrás.
 
 ## B.2 — Para cada cliente novo: montar a pasta
 
@@ -115,7 +121,9 @@ O `performance.md` vai estar vazio, porque ainda não existe histórico do clien
 - **Marca primeiro.** Sempre.
 - **Material de verdade.** Sem material, o Claude marca PERGUNTAR AO CLIENTE em vez de inventar. Respeite isso.
 - **Um cliente por vez.** Uma conversa (Cowork) ou uma pasta (Claude Code) por cliente.
-- **Guarde as entregas.** No Cowork, copie pro Drive/Notion. É esse histórico que vira a referência de qualidade do time.
+- **Guarde as entregas.** No Cowork, copie pro lugar oficial da equipe: **[DEFINIR: Drive da i9 / Notion]**, com a data no nome. É esse histórico que vira a referência de qualidade do time.
+- **Faça backup das campanhas (Claude Code).** A pasta da campanha fica só na sua máquina e **não sobe pro GitHub** (é de propósito). Se for algo importante, guarde as entregas também no Drive/Notion — se o computador falhar, o que não estiver salvo fora se perde.
+- **Atualizar uma campanha antiga (Claude Code).** Os comandos dentro da campanha ficam congelados na versão do dia em que você copiou. Pra trazer uma melhoria nova, recopie a pasta `.claude/` do `TEMPLATE DE CAMPANHA` pra dentro da campanha.
 
 ## Onde tirar dúvida
 

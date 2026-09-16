@@ -113,11 +113,12 @@ No Cowork o resultado sai no chat. Copie e guarde onde a equipe organiza os mate
 
 ## Como começar (Claude Code, primeira vez na sua máquina)
 
-1. **Clone o repositório:**
+1. **Clone o repositório** (uma vez):
    ```bash
    git clone https://github.com/i9CRIACOES/FLUXO-DE-CAMPANHAS.git "FLUXO DE CAMPANHAS"
    cd "FLUXO DE CAMPANHAS"
    ```
+   Já clonou antes? Rode `git pull` pra pegar a versão mais recente da máquina.
 2. Não precisa instalar nada: os comandos já vêm no repositório.
 
 ---
