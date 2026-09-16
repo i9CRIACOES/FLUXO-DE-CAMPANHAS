@@ -20,6 +20,7 @@ if [ -e "$DESTINO" ]; then
 fi
 
 cp -R "$RAIZ/_MODELO-CAMPANHA" "$DESTINO"
+rm -f "$DESTINO/_LEIA-MODELO.md"   # nota do molde não vai pra dentro da campanha
 echo "Campanha criada em: campanhas/$1"
 echo ""
 echo "Próximos passos:"
