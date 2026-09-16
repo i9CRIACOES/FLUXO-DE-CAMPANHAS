@@ -11,7 +11,7 @@ Uma "caixa de comandos" pra produzir campanha em escala com padrão de agência.
 
 **Regra de ouro:** a qualidade da saída depende 100% do que está na pasta `marca/`. Comando bom + `marca/` vazia = texto genérico.
 
-**Uma pasta por campanha.** O trabalho acontece dentro de `campanhas/<nome-da-campanha>/`, cada uma com seu próprio `marca/`, `briefings/` e `entregas/`. Crie uma nova com `./nova-campanha.sh <nome>` (na raiz) e **abra o Claude Code dentro da pasta da campanha** — assim os caminhos `marca/` e `entregas/` dos comandos resolvem ali dentro, isolados das outras campanhas. Os comandos são os mesmos; só o lugar onde você os roda muda.
+**Uma pasta por campanha, autossuficiente.** Cada campanha é uma cópia da pasta `TEMPLATE DE CAMPANHA/` e fica direto na raiz do projeto (ex.: `ESTUDIOi9/`). Ela já vem com tudo dentro: os comandos (`.claude/commands/`), este checklist (`CLAUDE.md`) e as pastas `marca/`, `briefings/`, `entregas/`. Crie uma nova rodando `_APOIO/nova-campanha.sh <NOME>` e **abra o Claude Code dentro da pasta da campanha** — assim os comandos e os caminhos (`marca/`, `entregas/`) resolvem ali dentro, isolados de todas as outras. Você está lendo este arquivo porque a sessão já está dentro de uma pasta de campanha.
 
 ---
 
@@ -19,7 +19,7 @@ Uma "caixa de comandos" pra produzir campanha em escala com padrão de agência.
 
 Antes de executar qualquer comando de campanha, o Claude DEVE verificar (e, se faltar, avisar o operador):
 
-1. **Qual campanha?** Confirme que você está na pasta certa em `campanhas/<nome>/`. Cada campanha tem seu próprio `marca/`. Se a sessão não está dentro de uma pasta de campanha, avise antes de gerar qualquer coisa.
+1. **Qual campanha?** Confirme que você está dentro da pasta da campanha certa (ex.: `ESTUDIOi9/`). Cada campanha tem seu próprio `marca/`. Se a sessão estiver na raiz do projeto ou no `TEMPLATE DE CAMPANHA/`, avise antes de gerar qualquer coisa — nunca trabalhe no template.
 2. **`marca/` está preenchida?** Verifique se existem `marca.md`, `voz.md`, `identidade.md`. Se não existirem → o primeiro passo é rodar `/marca`, nada mais.
 3. **`publico.md` e `performance.md` têm dado real?** Se ainda estão com o texto de template, avise: `/calendario` e `/ads` vão sair fracos.
 4. **Insumos no lugar?** Pra rodar `/marca`, confirme que há material em `marca/insumos/` (site, PDF comercial, ~10 posts).
@@ -35,7 +35,7 @@ Antes de executar qualquer comando de campanha, o Claude DEVE verificar (e, se f
 1. **Nunca inventar dado.** Onde faltar informação, escrever **PERGUNTAR AO CLIENTE** e seguir. Número que não existe no material do cliente não entra na entrega.
 2. **Citar a fonte** de toda afirmação forte (de qual insumo/URL saiu).
 3. **`/marca` sempre primeiro.** Os outros quatro dependem dele.
-4. **Uma campanha por pasta.** Cada campanha vive em `campanhas/<nome>/` com sua própria `marca/`. Não misture duas campanhas na mesma sessão.
+4. **Uma campanha por pasta.** Cada campanha vive na sua própria pasta na raiz, com sua própria `marca/`. Não misture duas campanhas na mesma sessão.
 5. **Não repetir texto entre plataformas** no `/repurpose` — cada rede recebe o ângulo que funciona nela.
 6. **Uma variável por variante** no `/ads` — hipótese escrita antes de rodar.
 

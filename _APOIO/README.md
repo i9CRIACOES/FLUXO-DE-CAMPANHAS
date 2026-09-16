@@ -18,27 +18,34 @@ Repositório de **comandos do Claude Code** que a agência usa pra rodar os 5 fl
 
 ### Estrutura de pastas
 
+A raiz tem só **as pastas de campanha** + o **template** + a pasta de apoio. Nada solto.
+
 ```
 FLUXO DE CAMPANHAS/
-├─ .claude/commands/     ← os 5 comandos (versionados, todo mundo herda)
-├─ campanhas/            ← UMA PASTA POR CAMPANHA (é aqui que o trabalho acontece)
-│  ├─ estudio-i9-locacao/
-│  │  ├─ marca/          ← diretrizes desta campanha
-│  │  │  ├─ insumos/     ← material bruto do cliente (jogue aqui ANTES do /marca)
-│  │  │  ├─ marca.md · voz.md · identidade.md   ← gerados por /marca
-│  │  │  ├─ publico.md   ← você preenche (lido por /calendario e /ads)
-│  │  │  └─ performance.md ← números reais (lido por /calendario)
-│  │  ├─ briefings/      ← briefing que entra no /campanha
-│  │  └─ entregas/       ← tudo que os comandos produzem
-│  └─ cliente-x-lancamento/ ...
-├─ _MODELO-CAMPANHA/     ← molde vazio (copiado a cada campanha nova; não trabalhe aqui)
-├─ nova-campanha.sh      ← cria uma campanha nova a partir do molde
-├─ exemplos/             ← caso-modelo (cliente fictício "Verde Vida") de referência
-├─ COMANDOS.md           ← os 5 comandos num arquivo só (pra usar no Contexto do Cowork)
-└─ CLAUDE.md             ← checklist que aparece sozinho em todo chat novo
+├─ TEMPLATE DE CAMPANHA/   ← o molde. Contém TUDO que uma campanha precisa. NÃO trabalhe aqui.
+│  ├─ .claude/commands/    ← os 5 comandos
+│  ├─ CLAUDE.md            ← checklist (carrega sozinho na sessão da campanha)
+│  ├─ marca/
+│  │  ├─ insumos/          ← material bruto do cliente (jogue aqui ANTES do /marca)
+│  │  ├─ marca.md · voz.md · identidade.md   ← gerados por /marca
+│  │  ├─ publico.md        ← você preenche (lido por /calendario e /ads)
+│  │  └─ performance.md    ← números reais (lido por /calendario)
+│  ├─ briefings/           ← briefing que entra no /campanha
+│  └─ entregas/            ← tudo que os comandos produzem
+│
+├─ ESTUDIOi9/              ← UMA CAMPANHA (cópia autossuficiente do template)
+├─ cliente-x/              ← outra campanha...
+│
+└─ _APOIO/                 ← papelada de apoio, fora do caminho
+   ├─ nova-campanha.sh     ← cria uma campanha nova (copia o template)
+   ├─ COMANDOS.md          ← os 5 comandos num arquivo só (pro Contexto do Cowork)
+   ├─ exemplos/            ← caso-modelo "Verde Vida" (referência)
+   └─ README.md            ← este arquivo
 ```
 
-> **Por que uma pasta por campanha:** cada campanha fica isolada — marca, briefings e entregas separados. Nada de sobrescrever o cliente anterior. Os comandos **não mudam**: como você trabalha dentro da pasta da campanha, os caminhos que eles usam (`marca/`, `entregas/`) já resolvem ali dentro.
+> **Por que cada campanha é autossuficiente:** ela é uma cópia inteira do `TEMPLATE DE CAMPANHA/`, então já traz os comandos, o checklist e as pastas dentro dela. Você abre o Claude Code dentro da pasta da campanha e tudo funciona ali, isolado das outras.
+>
+> **Trade-off (importante):** se você melhorar um comando, edite no `TEMPLATE DE CAMPANHA/`. As campanhas **já criadas** ficam com a versão que tinham (isso é bom pra reproduzir o que foi feito). Pra atualizar uma campanha antiga, recopie a pasta `.claude/` do template pra dentro dela.
 
 ---
 
@@ -97,7 +104,7 @@ No Cowork o resultado sai no chat. Copie e guarde onde a equipe organiza os mate
 - **Marca primeiro.** Sem as diretrizes, tudo sai genérico.
 - **Não inventar número.** Se o material do cliente não tem o dado, o Claude marca PERGUNTAR AO CLIENTE. Respeite isso.
 - **Um cliente por vez** em cada linha de raciocínio. Não misture dois clientes no mesmo pedido.
-- Em dúvida sobre como pedir, abra o `COMANDOS.md` no Contexto do projeto e o `exemplos/verde-vida/` no GitHub pra ver como fica cada entrega.
+- Em dúvida sobre como pedir, abra o `COMANDOS.md` no Contexto do projeto e o `_APOIO/exemplos/verde-vida/` no GitHub pra ver como fica cada entrega.
 
 > Quem for mexer a fundo (versionar, ajustar comandos, salvar em pasta) usa o **Claude Code** — as instruções estão logo abaixo. A maior parte da equipe resolve tudo pelo Cowork.
 
@@ -122,10 +129,10 @@ No Cowork o resultado sai no chat. Copie e guarde onde a equipe organiza os mate
 
 1. **Crie a pasta da campanha** (na raiz do projeto):
    ```bash
-   ./nova-campanha.sh estudio-i9-locacao
+   ./_APOIO/nova-campanha.sh ESTUDIOi9
    ```
-   Isso cria `campanhas/estudio-i9-locacao/` já com a estrutura pronta.
-2. **Abra o Claude Code DENTRO da pasta da campanha** (`campanhas/estudio-i9-locacao/`) e digite `/` — os 5 comandos aparecem. Trabalhar dentro da pasta é o que faz cada entrega ficar isolada ali.
+   Isso cria a pasta `ESTUDIOi9/` na raiz, já autossuficiente (com comandos, checklist e estrutura). Se preferir, dá no mesmo duplicar a pasta `TEMPLATE DE CAMPANHA` no Finder e renomear.
+2. **Abra o Claude Code DENTRO da pasta da campanha** (`ESTUDIOi9/`) e digite `/` — os 5 comandos aparecem. Trabalhar dentro da pasta é o que faz cada entrega ficar isolada ali.
 3. **Junte o material** → jogue site, PDF comercial e ~10 posts do cliente em `marca/insumos/`.
 4. **Rode `/marca`:**
    ```
@@ -163,7 +170,7 @@ Cada comando é só um arquivo markdown em `.claude/commands/`. Pra criar um nov
 
 ### Guardando exemplos de campanha como referência
 
-Já tem um caso-modelo pronto em **`exemplos/verde-vida/`** (cliente fictício, marmitas saudáveis). Ele mostra "como deve ficar" cada arquivo: `marca/` preenchida, um briefing e as 4 entregas (`/calendario`, `/repurpose`, `/campanha`, `/ads`). Abra antes de rodar num cliente real pra calibrar o nível de detalhe esperado — **copie a estrutura e a disciplina, não os dados**.
+Já tem um caso-modelo pronto em **`_APOIO/exemplos/verde-vida/`** (cliente fictício, marmitas saudáveis). Ele mostra "como deve ficar" cada arquivo: `marca/` preenchida, um briefing e as 4 entregas (`/calendario`, `/repurpose`, `/campanha`, `/ads`). Abra antes de rodar num cliente real pra calibrar o nível de detalhe esperado — **copie a estrutura e a disciplina, não os dados**.
 
 Quando uma campanha sua ficar boa, **commite a entrega** em `entregas/` (ou dentro de `exemplos/`) pra virar referência do time. Assim o próximo a rodar `/campanha` tem um padrão de qualidade pra mirar.
 
